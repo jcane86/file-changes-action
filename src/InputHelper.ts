@@ -84,8 +84,7 @@ export function inferInput(
   if (event === 'pull_request') {
     if (
       before &&
-      after &&
-      (before !== context.payload.before || after !== context.payload.after)
+      after
     )
       return {before, after} // PR(push) - pull_request event with push inputs | PUSH
     if (before || after) coreWarning(weirdInput) // PR(push) - pull_request event with single push input | PR*
