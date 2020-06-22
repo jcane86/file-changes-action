@@ -78,6 +78,8 @@ export function inferInput(
   after: string,
   pr: number
 ): Inferred {
+  coreWarning(before)
+  coreWarning(after)
   const event = context.eventName
   const weirdInput = `Received event from ${event}, but also received a before(${before}) or after(${after}) value.\n I am assuming you want to use a Push event but forgot something, so I'm giving you a message.`
   const allInput = `Received event from ${event}, but received a before(${before}), after(${after}), and PR(${pr}).\n I am assuming you want to use one or the other but I am giving you Push.`
